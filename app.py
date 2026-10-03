@@ -126,7 +126,8 @@ def call_gemini(prompt: str, json_mode: bool = False) -> str:
 
 
 def parse_quiz_json(raw: str) -> list[dict]:
-    """Turn the model's JSON reply into a validated list of questions."""
+    """
+Turn the model's JSON reply into a validated list of questions."""
     cleaned = re.sub(r"^```(?:json)?|```$", "", raw.strip(), flags=re.MULTILINE).strip()
     data = json.loads(cleaned)
     if isinstance(data, dict):  # sometimes wrapped as {"questions": [...]}
