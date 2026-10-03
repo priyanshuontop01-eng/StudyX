@@ -20,27 +20,28 @@ from google.genai import types
 st.set_page_config(page_title="AI Study Assistant", page_icon="📚", layout="wide")
 
 st.image("studyx_banner.png", use_container_width=True)
+# --------------------------------------------------------------------------
+# 1. PAGE CONFIG & BANNER
+# --------------------------------------------------------------------------
+st.set_page_config(page_title="AI Study Assistant", page_icon="📚", layout="wide")
+
+# Custom CSS: Hide Streamlit default header/footer
 st.markdown(
     """
     <style>
         .block#MainMenu {visibility: hidden;}
-footer {visibility: hidden;}
-header {visibility: hidden;}-container {padding-top: 2rem; max-width: 1100px;}
-        .hero {
-            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-            padding: 2rem 2.2rem; border-radius: 18px; color: white; margin-bottom: 1.5rem;
-        }
-        .hero h1 {margin: 0; font-size: 2.1rem; color: white;}
-        .hero p  {margin: .4rem 0 0 0; opacity: .92; font-size: 1.05rem;}
-        .stTabs [data-baseweb="tab"] {font-size: 1.02rem; font-weight: 600;}
-        div.stButton > button, div.stDownloadButton > button {
-            border-radius: 10px; font-weight: 600;
-        }
-        .score-box {
-            padding: 1rem 1.3rem; border-radius: 14px; font-size: 1.2rem; font-weight: 700;
-            background: #eef2ff; color: #3730a3; margin-bottom: 1rem;
-        }
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        .main .block-container {padding-top: 1rem; max-width: 1000px;}
     </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+# Centered & Compact Banner
+col1, col2, col3 = st.columns([1, 2, 1])
+with col2:
+    st.image("studyx_banner.png", width=550)
     <div class="hero">
         <h1>📚 AI Study Assistant</h1>
         <p>Upload a chapter as a PDF and get instant notes, a quiz, and a practice paper.</p>
