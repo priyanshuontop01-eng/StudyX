@@ -41,10 +41,7 @@ st.markdown(
 # Centered & Compact Banner
 col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
-    st.image("studyx_banner.png", width=550)
-    <div class="hero">
-        <h1>📚 AI Study Assistant</h1>
-        <p>Upload a chapter as a PDF and get instant notes, a quiz, and a practice paper.</p>
+  
     </div>
     """,
     unsafe_allow_html=True,
