@@ -22,7 +22,9 @@ st.set_page_config(page_title="AI Study Assistant", page_icon="📚", layout="wi
 st.markdown(
     """
     <style>
-        .block-container {padding-top: 2rem; max-width: 1100px;}
+        .block#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}-container {padding-top: 2rem; max-width: 1100px;}
         .hero {
             background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
             padding: 2rem 2.2rem; border-radius: 18px; color: white; margin-bottom: 1.5rem;
