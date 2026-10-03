@@ -15,13 +15,7 @@ from google import genai
 from google.genai import types
 
 # --------------------------------------------------------------------------
-# 1. PAGE CONFIG + STYLING
-# --------------------------------------------------------------------------
-st.set_page_config(page_title="AI Study Assistant", page_icon="📚", layout="wide")
-
-st.image("studyx_banner.png", use_container_width=True)
-# --------------------------------------------------------------------------
-# 1. PAGE CONFIG & BANNER
+# 1. PAGE CONFIG & STYLING
 # --------------------------------------------------------------------------
 st.set_page_config(page_title="AI Study Assistant", page_icon="📚", layout="wide")
 
@@ -29,28 +23,30 @@ st.set_page_config(page_title="AI Study Assistant", page_icon="📚", layout="wi
 st.markdown(
     """
     <style>
-        .block#MainMenu {visibility: hidden;}
+        #MainMenu {visibility: hidden;}
         footer {visibility: hidden;}
         header {visibility: hidden;}
         .main .block-container {padding-top: 1rem; max-width: 1000px;}
+        .score-box {
+            background-color: #f0f2f6;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
     </style>
     """,
     unsafe_allow_html=True,
 )
 
-# Centered & Compact Banner
-col1, col2, col3 = st.columns([1, 2, 1])
-with col2:
-  
-    </div>
-    """,
-    unsafe_allow_html=True,
-)
+# Banner
+st.image("studyx_banner.png", use_container_width=True)
 
 # --------------------------------------------------------------------------
 # 2. SETTINGS (API key, model, text limit)
 # --------------------------------------------------------------------------
-DEFAULT_MODEL = "gemini-2.5-flash"  # free-tier friendly; change here if Google renames models
+DEFAULT_MODEL = "gemini-2.5-flash"  # free-tier friendly
 
 
 def get_api_key() -> str:
@@ -126,8 +122,7 @@ def call_gemini(prompt: str, json_mode: bool = False) -> str:
 
 
 def parse_quiz_json(raw: str) -> list[dict]:
-    """
-Turn the model's JSON reply into a validated list of questions."""
+    """Turn the model's JSON reply into a validated list of questions."""
     cleaned = re.sub(r"^```(?:json)?|```$", "", raw.strip(), flags=re.MULTILINE).strip()
     data = json.loads(cleaned)
     if isinstance(data, dict):  # sometimes wrapped as {"questions": [...]}
