@@ -169,7 +169,7 @@ def extract_text(pdf_bytes: bytes) -> tuple[str, int]:
     return "\n\n".join(pages).strip(), count
 
 def call_gemini(prompt: str, json_mode: bool = False) -> str:
-    api_key = AQ.Ab8RN6KJcurjcCQRpxPnH_FdkAhmLAzokPj7T-bYalI2rA-yHQ
+    api_key = .Ab8RN6KJcurjcCQRpxPnH_FdkAhmLAzokPj7T-bYalI2rA-yHQ
     if not api_key:
         st.error("Gemini API key is required. Please provide it in sidebar secrets or input field.")
         st.stop()
