@@ -19,7 +19,7 @@ from google.genai import types
 # --------------------------------------------------------------------------
 st.set_page_config(page_title="AI Study Assistant", page_icon="📚", layout="wide")
 
-st.markdown(
+st.image("studyx_banner.png", use_container_width=True)
     """
     <style>
         .block#MainMenu {visibility: hidden;}
