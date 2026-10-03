@@ -18,33 +18,35 @@ from google.genai import types
 # 1. PAGE CONFIG & STYLING
 # --------------------------------------------------------------------------
 st.set_page_config(page_title="AI Study Assistant", page_icon="📚", layout="wide")
+# --------------------------------------------------------------------------
+# 1. PAGE CONFIG & STYLING
+# --------------------------------------------------------------------------
+st.set_page_config(page_title="AI Study Assistant", page_icon="📚", layout="wide")
 
-# Custom CSS: Hide Streamlit default header/footer
+# Custom CSS: Hide Streamlit header/footer and control image height
 st.markdown(
     """
     <style>
         #MainMenu {visibility: hidden;}
         footer {visibility: hidden;}
         header {visibility: hidden;}
-        .main .block-container {padding-top: 1rem; max-width: 1000px;}
-        .score-box {
-            background-color: #f0f2f6;
-            padding: 15px;
-            border-radius: 10px;
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 20px;
+        .main .block-container {padding-top: 1rem; max-width: 900px;}
+        .banner-img img {
+            max-height: 180px;
+            object-fit: contain;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
     </style>
     """,
     unsafe_allow_html=True,
 )
 
-# Banner
+# Centered & Compact Banner
+st.markdown('<div class="banner-img">', unsafe_allow_html=True)
 st.image("studyx_banner.png", use_container_width=True)
-
-# --------------------------------------------------------------------------
-# 2. SETTINGS (API key, model, text limit)
+st.markdown('</div>', unsafe_allow_html=True)
 # --------------------------------------------------------------------------
 DEFAULT_MODEL = "gemini-2.5-flash"  # free-tier friendly
 
